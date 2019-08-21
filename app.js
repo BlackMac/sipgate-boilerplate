@@ -158,7 +158,7 @@ app.get('/auth/sipgate/callback', passport.authenticate('sipgate', { failureRedi
   res.redirect(req.session.returnTo || '/');
 });
 
-const directoryPath = path.join(__dirname, 'Apps');
+const directoryPath = path.join(__dirname, 'apps');
 fs.readdir(directoryPath, { withFileTypes: true }, (err, files) => {
   if (files) {
     files = files.filter(file => !(/(^|\/)\.[^\/\.]/g).test(file.name));
