@@ -1,6 +1,10 @@
 SIPGATE BOILERPLATE
 ===================
 
+## Demo
+
+Try our [Live Sample](https://spinatathon.sideprojects.de)
+
 ## Get started
 
  ### 1. Check out sipgate boilerplate
