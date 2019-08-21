@@ -17,6 +17,7 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const expressStatusMonitor = require('express-status-monitor');
 const sass = require('node-sass-middleware');
+const fs = require('fs');
 
 /**
  * Load environment variables from .env file, where API keys and passwords are configured.
@@ -156,6 +157,28 @@ app.get('/auth/sipgate', passport.authenticate('sipgate'));
 app.get('/auth/sipgate/callback', passport.authenticate('sipgate', { failureRedirect: '/login' }), (req, res) => {
   res.redirect(req.session.returnTo || '/');
 });
+
+const directoryPath = path.join(__dirname, 'Apps');
+fs.readdir(directoryPath, { withFileTypes: true }, (err, files) => {
+  files = files.filter(file => !(/(^|\/)\.[^\/\.]/g).test(file.name));
+  // handling error
+  if (err) {
+    return console.log(`Unable to scan directory:  ${err}`);
+  }
+  const apps = [];
+  // listing all files using forEach
+  files.forEach((file) => {
+    if (file.isDirectory()) {
+      const configFile = path.join(directoryPath, file.name, 'config.js');
+      const config = require(configFile);
+      apps.push(config);
+      const appControllerFile = path.join(directoryPath, file.name, config.controller);
+      app.use(`/apps/${config.path}`, require(appControllerFile));
+    }
+  });
+  app.locals.apps = apps;
+});
+
 
 /**
  * Error Handler.

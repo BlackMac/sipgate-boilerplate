@@ -19,10 +19,11 @@
             span Applications
             i.caret
           ul.dropdown-menu
-            a(href='/apps/sms')
-              li.dropdown-item
-               i.fas.fa-sms
-               | Send SMS
+            each app in apps
+              a(href='/apps/'+app.path)
+                li.dropdown-item
+                  i(class=app.symbol)
+                  =app.name
 
       ul.nav.navbar-nav.ml-auto
         if user
