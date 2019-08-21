@@ -99,7 +99,7 @@ exports.refreshSipgateToken = (req, res, next) => {
         req.user.tokens = newTokens;
         const user = new User(req.user);
         user.tokens.push(newTokens);
-        user.save().then(next);
+        user.save().then(() => { next(); });
       });
     } else {
       next();
