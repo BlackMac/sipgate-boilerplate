@@ -10,6 +10,6 @@ RUN yarn install --production
 COPY .env.example /starter/.env.example
 COPY . /starter
 
-CMD ["npm","start"]
+CMD ["yarn","start"]
 
 EXPOSE 8080
