@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  .row
+    .col-md-3.card
+      i.fas.fa-wallet.icon
+      h5 Konto &amp; Rechnungen
+      span.balance.confirm= "Guthaben: "+intl.format(balance.amount/10000)
+      p Rechnungen, Zahldaten und Einzelverbindungsnachweise
+    .col-md-3.card.offset-md-1
+      i.fas.fa-phone.icon
+      h5 Rufnummern &amp; Standorte
+      span.balance= `${phoneNumbers.length} Rufnummer${phoneNumbers.length>1?"n":""}`
+      p Standorte verwalten und Rufnummern buchen
+    .col-md-3.card.offset-md-1
+      i.fas.fa-user.icon
+      h5 Benutzer
+      span.balance= `${users.length} Benutzer`
+      p Benutzer verwalten und einladen
+    .col-md-3.card
+      i.fas.fa-book-dead.icon
+      h5 Blacklist
+      span.balance= `${blacklist.length} gesperrte Nummern`
+      p Gesperrte Rufnummern und Rufnummernbereiche
+
+  script(src="https://cdn.jsdelivr.net/npm/chart.xkcd@1/dist/chart.xkcd.min.js")
+  script(src="/js/graph.js")
