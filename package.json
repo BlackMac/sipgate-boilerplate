@@ -1,16 +1,13 @@
 {
-  "name": "hackathon-starter",
-  "version": "5.1.4",
-  "description": "A boilerplate for Node.js web applications",
+  "name": "sipgate-boilerplate",
+  "version": "0.1",
+  "description": "A boilerplate for sipgate.io web applications",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sahat/hackathon-starter.git"
+    "url": "https://github.com/blackmac/sipgate-boilerplate.git"
   },
   "license": "MIT",
-  "author": "Sahat Yalkabov",
-  "contributors": [
-    "Yashar Fakhari (https://github.com/YasharF)"
-  ],
+  "author": "Stefan Lange-Hegermann",
   "scripts": {
     "postinstall": "npm rebuild node-sass",
     "start": "node app.js",
