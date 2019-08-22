@@ -1,7 +1,5 @@
-// Require the sipgate library
-const sipgate = require("sipgate-bp-lib")();
-
-sipgate.getHistory({types:"CALL"}).then((result) => {
-  console.log(result);
-
-}).catch(console.log);
+// Get history filtered by event type CALL
+await sipgate.getHistory({
+    types:"CALL",
+    limit:20
+});

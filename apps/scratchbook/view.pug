@@ -30,6 +30,9 @@ block content
             | Call history
             code.invisible.d-none
               include samples/call_stats.js
+        .alert.alert-info 
+          strong Attention: 
+          | If you get a 401 error, please reload the page. Token refresh has not been implemented yet.
     div(id="io-editor").col-md-8.offset-md-1
   script(src="https://embed.runkit.com")
   script!= `accessToken = "${accessToken}";`

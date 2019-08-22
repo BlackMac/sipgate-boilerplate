@@ -1,6 +1,3 @@
-// Require the sipgate library
-const sipgate = require("sipgate-bp-lib")();
-
 // Fetch the balance and log result after promise resolution
 sipgate.getBalance().then((result) => {
   console.log(result);
