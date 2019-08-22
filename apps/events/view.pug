@@ -1,0 +1,22 @@
+extends ../../layout
+
+
+
+block content
+  style
+    include style.css
+  .row
+    .h3=title
+  .row
+    .list-group
+      each event in events
+        .list-group-item
+          span
+            .event-type
+              = event.type
+            .event-status
+              = event.status
+              | •
+              = event.direction
+            h4.event-source
+              = event.source
