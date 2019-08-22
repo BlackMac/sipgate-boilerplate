@@ -3,11 +3,16 @@ SIPGATE BOILERPLATE
 
 ## Demo
 
-Try our [Live Sample](https://spinatathon.sideprojects.de)
+Try the [Live Sample](https://spinatathon.sideprojects.de)
 
 ## Get started
+ ### 0. Install requirements
+ [Install Node.js](https://nodejs.org/en/)
+ 
+ You can use any text editor, but I recommend [Visual Studio Code](https://code.visualstudio.com/)
 
  ### 1. Check out sipgate boilerplate
+ Open your Operating systems terminal and type:
 ```bash
 # clone the repository
 git clone git@github.com:BlackMac/sipgate-boilerplate.git

@@ -6,7 +6,9 @@ block content
   .row
     .col-md-7
       p Oh, the Awesomeness. It has never been easier to build sipgate API based applications in seconds.
-      p With Spinatathon you just check out and start playing. based on the crazy cool Hackathon-Starter and stripped down to be even easier to use for sipgate projects.
+      p With sipgate boilerplate you just check out and start playing. based on the crazy cool Hackathon-Starter and stripped down to be even easier to use for sipgate projects.
+      p The sipgate boilerplate documentation is  
+        a.btn.btn-primary(href="https://github.com/BlackMac/sipgate-boilerplate" target=blank) available on github
     .col-md-5
       if !user
         form(method='POST')
@@ -16,37 +18,4 @@ block content
             a.btn.btn-block.btn-sipgate.btn-social(href='/auth/sipgate')
               img(src='/img/logo_sipgate.png')
               | Continue with sipgate
-  h2 Sample Services
-  p.lead These are applications that can be built using our APIs today.
-  p Add your own ideas or implement the ideas given here.
-  .row.store
-    .card.col-md-3
-      i.fas.fa-globe.card-img-top.text-center
-      .card-body
-        h5 Regional Routing
-        p Wherever people come from. We recognize the country and city and send the call to the agent responsible for the callers region.
-    .card.col-md-3.offset-md-1
-      i.fas.fa-microphone-alt.card-img-top.text-center
-      .card-body
-        h5 Call me
-        p Add a callback button to your website that initiates a call as soon as you become available.
-    .card.col-md-3.offset-md-1
-      i.fas.fa-chart-pie.card-img-top.text-center
-      .card-body
-        h5 Call Tracking
-        p Use many phone numbers to track which of your ads gets most phone calls. Calls will be pushed to Google analytics or other analytics services.
-    .card.col-md-3
-      i.fas.fa-puzzle-piece.card-img-top.text-center
-      .card-body
-        h5 Website widget
-        p Put a widget on your website, that lets customers call you directly from their browser
-    .card.col-md-3.offset-md-1
-      i.fas.fa-mobile.card-img-top.text-center
-      .card-body
-        h5 Number validation
-        p Validate a phone (landline or mobile) number using SMS or an automated call by sending the user to a website.
-    .card.col-md-3.offset-md-1
-      i.fas.fa-address-card.card-img-top.text-center
-      .card-body
-        h5 Caller Context
-        p See all the information we can pull up about a current caller - live.
+  
