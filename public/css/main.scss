@@ -187,9 +187,6 @@ textarea {
   font-size: 120px;
 }
 
-.card {
-  margin-bottom:38px;
-}
 
 .dropdown-menu i {
   width:1rem;
@@ -198,9 +195,8 @@ textarea {
   color:#666666;
 }
 
-.infocard {
-  border:1px solid #cccccc;
-  box-shadow: 1px 1px 1px #cccccc;
+.card {
+  box-shadow: 1px 1px 10px #cccccc;
 }
 
 .icon {
@@ -212,17 +208,29 @@ textarea {
   color:green;
 }
 
-.card {
-  padding-top:20px;
-  padding-bottom:20px;
-}
-
 .balance {
   font-weight: bold;
   font-size: 16px;
-  line-height:60px;
 }
 
 svg {
   height: 100px;
+}
+
+.cardwarning {
+  background-color:#f0b8b8;
+}
+
+.status {
+  display:block;
+}
+
+.statusline {
+  font-weight:bold;
+  margin: 20px 0;
+  font-size: 16px;
+}
+
+h5 {
+  text-align: center;
 }
