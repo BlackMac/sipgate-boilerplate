@@ -1,11 +1,15 @@
-let notebook = RunKit.createNotebook({
-  element: document.getElementById('io-editor'),
-  source: `const sipgate = require("sipgate-bp-lib")();
 
-sipgate.sessions.sendSms("+4912345678", "This is a short message!").then((result) => {
-  console.log(result);
-}).catch(error => {
-  console.log("Error", error);
-});`,
-  env: [`TOKEN=${accessToken}`]
+window.addEventListener('load', () => {
+  const notebook = RunKit.createNotebook({
+    element: document.getElementById('io-editor'),
+    source: $('.list-group-item-action code').first().text(),
+    env: [`TOKEN=${accessToken}`]
+  });
+
+  $('.list-group-item-action').click(function clicked(event) {
+    event.stopPropagation();
+    $('.list-group-item-action').removeClass("active");
+    $(this).addClass("active");
+    notebook.setSource($(this).find('code').text(), () => {});
+  });
 });
