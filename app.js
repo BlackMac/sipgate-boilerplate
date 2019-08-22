@@ -18,6 +18,7 @@ const passport = require('passport');
 const expressStatusMonitor = require('express-status-monitor');
 const sass = require('node-sass-middleware');
 const fs = require('fs');
+const sipgate = require('./lib/sipgate')();
 
 /**
  * Load environment variables from .env file, where API keys and passwords are configured.
@@ -183,6 +184,7 @@ fs.readdir(directoryPath, { withFileTypes: true }, (err, files) => {
   }
 });
 
+app.use('/hooks', sipgate.router);
 
 /**
  * Error Handler.
