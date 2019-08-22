@@ -1,0 +1,41 @@
+extends ../../layout
+
+block content
+  style
+    include style.css
+  .row
+    .h3=title
+  .row
+    div(id="io-editor").col-md-8
+    .col-md-4
+      .row
+          p
+            | Here are some sipgate library funktions you might like to try:
+      .row
+        ul
+          li
+            code sipgate.auth.getUserInfo()
+          li
+            code sipgate.blacklist.getIncoming()
+          li
+            code sipgate.sessions.sendSms(recipient, text)
+          li
+            code sipgate.app.getEvents()
+          li
+            code sipgate.getSmsExtensions(userid)
+          li
+            code sipgate.getPhoneNumbers()
+          li
+            code sipgate.getBalance()
+          li
+            code sipgate.getUsers()
+          li
+            code sipgate.getAddresses()
+          li
+            code sipgate.module.getGroups()
+          li
+            code sipgate.module.getHistory()
+  script(src="https://embed.runkit.com")
+  script!= `accessToken = "${accessToken}";`
+  script
+    include script.js
