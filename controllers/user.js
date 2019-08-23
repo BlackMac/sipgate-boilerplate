@@ -115,6 +115,10 @@ exports.postSignup = (req, res, next) => {
   });
 };
 
+exports.getToken = (req, res) => {
+  res.send(req.user.tokens[0].accessToken);
+};
+
 /**
  * GET /account
  * Profile page.

@@ -14,4 +14,10 @@ window.addEventListener('load', () => {
     $(this).addClass('active');
     notebook.setSource($(this).find('code').text(), () => {});
   });
+  setInterval(() => {
+    $.ajax({ url: '/token' })
+      .done((data) => {
+        notebook.env = [`TOKEN=${data}`];
+      });
+  }, 20000);
 });

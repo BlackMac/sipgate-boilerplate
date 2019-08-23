@@ -149,7 +149,7 @@ app.post('/account/profile', passportConfig.isAuthenticated, userController.post
 app.post('/account/password', passportConfig.isAuthenticated, userController.postUpdatePassword);
 app.post('/account/delete', passportConfig.isAuthenticated, userController.postDeleteAccount);
 app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userController.getOauthUnlink);
-
+app.get('/token', passportConfig.isAuthenticated, userController.getToken);
 /**
  * OAuth authentication routes. (Sign in)
  */
@@ -174,7 +174,7 @@ fs.readdir(directoryPath, { withFileTypes: true }, (err, files) => {
         const config = require(configFile);
         apps.push(config);
         const appControllerFile = path.join(directoryPath, file.name, config.controller);
-        app.use(`/apps/${config.path}`, require(appControllerFile));
+        app.use(`/apps/${config.path}`, passportConfig.isAuthenticated, require(appControllerFile));
       }
     });
     app.locals.apps = apps;
