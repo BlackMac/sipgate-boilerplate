@@ -49,7 +49,7 @@ http://localhost:8080
 ### 4. Create an app
 
 ```bash
-# create a copy of the app template
-cp -r apps/.template apps/helloworld
+# create a new app
+./mkapp helloworld
 ```
 After restarting node your app is avaliable at http://localhost:8080/helloworld

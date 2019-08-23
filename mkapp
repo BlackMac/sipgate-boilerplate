@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ -z $1 ]
+then 
+    echo "Usage: $0 <new app name>"
+    exit
+else
+    BASEDIR=$(dirname "$0")
+    cp -r $BASEDIR/apps/.template $BASEDIR/apps/$1
+fi
