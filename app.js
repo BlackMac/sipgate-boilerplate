@@ -23,8 +23,8 @@ const fs = require('fs');
  * Load environment variables from .env file, where API keys and passwords are configured.
  */
 dotenv.config({ path: '.env' });
-if (!process.env.SIPGATE_CLIENT_SECRET) {
-  console.log('Please copy the .env.example file to .env (cp .env.exaple .env) and configure your sipgate API keys as explained in that file');
+if (!process.env.MONGO_URL) {
+  console.log('Please copy the .env.example file to .env (cp .env.exaple .env) and configure your mongoDB connection string in .env');
   process.exit(1);
 }
 

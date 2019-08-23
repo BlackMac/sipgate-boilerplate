@@ -11,6 +11,9 @@ Try the [Live Sample](https://spinatathon.sideprojects.de)
  
  You can use any text editor, but I recommend [Visual Studio Code](https://code.visualstudio.com/)
 
+ __Mac ONLY:__
+ On a Mac you need the command line developer tools open terminal and enter ```xcode-select --install```
+
  ### 1. Check out sipgate boilerplate
  Open your Operating systems terminal and type:
 ```bash
@@ -20,34 +23,29 @@ git clone https://github.com/BlackMac/sipgate-boilerplate.git
 cd sipgate-boilerplate
 # install dependencies
 npm install
-# or
-yarn install
 ```
 
-### 2. Configure your sipgate.io client
+### 2. Run a mongoDB server
 
-You need to create credentials (CLIENT_SECRET and CLIENT_ID) for your application. Generate with the [sipgate console](https://console.sipgate.com)
+#### In the cloud
+Visit https://atlas.mongodb.com/ and create a free sandbox cluster close to your location.
 
-```
-Name:           Hello World
+When your cluster is ready (it takes a while) click "Connect", "Connect your Application" and whitelist your IP and define your username and password.
 
-Description:    My first Hello World 
+Afterwards you get a link like this:
 
-URLs:           http://sample.com
+    mongodb+srv://user:<password>@cluster.mongodb.net/test?retryWrites=true&w=majority
 
-Redirect URIs:  http://localhost:*
-```
+Make sure to replace < password > with the password you set before and paste the URL in your .env file:
 
-Save the client 
 ```bash
-# create a copy of the example config
+# create your own .env file
 cp .env.example .env
-# edit example config and fill in your API client credentials
+# edit .env file (you can use any editor. nano is just a recommendation)
 nano .env
 ```
 
-
-### 3. run sipgate boilerplate
+### 2. Run sipgate boilerplate
 ```bash
 # run
 node app.js
