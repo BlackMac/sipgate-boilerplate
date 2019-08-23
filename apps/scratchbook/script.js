@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 
 window.addEventListener('load', () => {
   const notebook = RunKit.createNotebook({
@@ -9,8 +10,8 @@ window.addEventListener('load', () => {
 
   $('.list-group-item-action').click(function clicked(event) {
     event.stopPropagation();
-    $('.list-group-item-action').removeClass("active");
-    $(this).addClass("active");
+    $('.list-group-item-action').removeClass('active');
+    $(this).addClass('active');
     notebook.setSource($(this).find('code').text(), () => {});
   });
 });

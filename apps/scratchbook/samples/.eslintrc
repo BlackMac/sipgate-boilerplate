@@ -1,0 +1,19 @@
+{
+    "env": {
+        "browser":false,
+        "node":true
+    },
+    "engines": {
+        "node": "10"
+    },
+    "globals": {
+        "sipgate": "readonly"
+    },
+    "rules": {
+        "eol-last":0,
+        "no-async-promise-executor":0
+    },
+    "parserOptions": {
+        "ecmaVersion": 2017
+    }
+}
