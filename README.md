@@ -15,7 +15,7 @@ Try the [Live Sample](https://spinatathon.sideprojects.de)
  Open your Operating systems terminal and type:
 ```bash
 # clone the repository
-git clone git@github.com:BlackMac/sipgate-boilerplate.git
+git clone https://github.com/BlackMac/sipgate-boilerplate.git
 # switch to sipgate boilerplate directory
 cd sipgate-boilerplate
 # install dependencies
@@ -24,10 +24,21 @@ npm install
 yarn install
 ```
 
-### 2. configure your sipgate.io client
+### 2. Configure your sipgate.io client
 
-You need to create credentials (CLIENT_SECRET and CLIENT_ID) for your application. Generate with at the [sipgate console](https://console.sipgate.com)
+You need to create credentials (CLIENT_SECRET and CLIENT_ID) for your application. Generate with the [sipgate console](https://console.sipgate.com)
 
+```
+Name:           Hello World
+
+Description:    My first Hello World 
+
+URLs:           http://sample.com
+
+Redirect URIs:  http://localhost:*
+```
+
+Save the client 
 ```bash
 # create a copy of the example config
 cp .env.example .env
@@ -52,4 +63,4 @@ http://localhost:8080
 # create a new app
 ./mkapp helloworld
 ```
-After restarting node your app is avaliable at http://localhost:8080/helloworld
+After restarting node your app is avaliable at http://localhost:8080/apps/helloworld
