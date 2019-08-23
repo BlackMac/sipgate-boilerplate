@@ -1,11 +1,12 @@
 /* eslint-disable no-undef */
+let notebook;
 
 window.addEventListener('load', () => {
-  const notebook = RunKit.createNotebook({
+  notebook = RunKit.createNotebook({
     element: document.getElementById('io-editor'),
     source: $('.list-group-item-action code').first().text(),
-    env: [`TOKEN=${accessToken}`],
-    preamble: 'const sipgate = require("sipgate-bp-lib")();'
+    preamble: `const sipgate = require("sipgate-bp-lib")();
+    process.env.TOKEN = "${accessToken}";`
   });
 
   $('.list-group-item-action').click(function clicked(event) {
@@ -17,7 +18,8 @@ window.addEventListener('load', () => {
   setInterval(() => {
     $.ajax({ url: '/token' })
       .done((data) => {
-        notebook.env = [`TOKEN=${data}`];
+        notebook.setPreamble(`const sipgate = require("sipgate-bp-lib")();
+        process.env.TOKEN = "${data}";`);
       });
   }, 20000);
 });
