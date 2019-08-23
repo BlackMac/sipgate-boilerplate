@@ -4,5 +4,13 @@
 // sipgate.getRest(path, filter)
 // sipgate.postRest(path, filter, params)
 // sipgate.putRest(path, filter, params)
+const { ValueViewerSymbol } = require("@runkit/value-viewer");
 
-await sipgate.getRest('blacklist/incoming');
+return await sipgate.getRest('blacklist/incoming').then(res => {
+    const BlacklistCount = {}
+    BlacklistCount[ValueViewerSymbol]= {
+            title:"Blacklist Count",
+            HTML: `<h1>Blacklisted Numbers: ${res.items.length}</H1>`
+        };
+    return BlacklistCount;
+});
