@@ -30,6 +30,11 @@ block content
             | Call history
             code.invisible.d-none
               include samples/call_stats.js
+          a.list-group-item.list-group-item-action(href="javascript:")
+            i.fas.fa-route &nbsp;
+            | Direct API Access
+            code.invisible.d-none
+              include samples/direct_api.js
         .alert.alert-info 
           strong Attention: 
           | If you get a 401 error, please reload the page. Token refresh has not been implemented yet.
