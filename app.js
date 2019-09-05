@@ -89,7 +89,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 app.use((req, res, next) => {
-  if (req.path === '/api/upload') {
+  if (req.path === '/api/upload' || req.path === '/apps/scratchbook/webhook') {
     // Multer multipart/form-data handling needs to occur before the Lusca CSRF check.
     next();
   } else {

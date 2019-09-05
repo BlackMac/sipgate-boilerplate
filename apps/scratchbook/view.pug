@@ -13,29 +13,52 @@ block content
           a.list-group-item.list-group-item-action.active(href="javascript:")
             i.fas.fa-money-bill &nbsp;
             | Account Balance
-            code.invisible.d-none
+            script.invisible.d-none(type="data")
               include samples/get_balance.js
           a.list-group-item.list-group-item-action(href="javascript:")
             i.fas.fa-user &nbsp;
             | User Information
-            code.invisible.d-none
+            script.invisible.d-none(type="data")
               include samples/get_user_information.js
           a.list-group-item.list-group-item-action(href="javascript:")
             i.fas.fa-sms &nbsp;
             | Send SMS
-            code.invisible.d-none
+            script.invisible.d-none(type="data")
               include samples/send_sms.js
           a.list-group-item.list-group-item-action(href="javascript:")
             i.fas.fa-map-marked-alt &nbsp;
             | Calls on a Map
-            code.invisible.d-none
+            script.invisible.d-none(type="data")
               include samples/calls_on_map.js
           a.list-group-item.list-group-item-action(href="javascript:")
             i.fas.fa-route &nbsp;
             | Direct API Access
-            code.invisible.d-none
+            script.invisible.d-none(type="data")
               include samples/direct_api.js
-    div(id="io-editor").col-md-8.offset-md-1
+          a.list-group-item.list-group-item-action.endpoint(href="javascript:")
+            i.fas.fa-plug &nbsp;
+            | Webhook live Calls
+            script.invisible.d-none(type="data")
+              include samples/webhooks.js
+    .col-md-8.offset-md-1
+      if (canchange==='y')
+        
+        .hooksconnect.alert.alert-info.hidden 
+          p You need to connect your Account to execute this webhook before every call. Please be aware, that every call will be routed through this endpoint afterwards.
+          p
+            a.btn.btn-danger.btn-sm.connectbtn Connect your sipgate Account Webhooks to 
+              span.runkiturl this script
+      else if canchange==='_'
+        .hooksconnect.alert.alert-info Webhooks are up and running
+      else
+        .hooksconnect.alert.alert-danger Sorry, but you account already has webhooks set up. We will not change this setting to not mess up your live account. You can delete the current endpint settings 
+          a(href="https://console.sipgate.de") from the sipgate console
+      .hooksconnected.alert.alert-success.hidden 
+        p Connection has been established. You can now call one of your accounts phone numbers.
+        p
+          a.btn.btn-info.btn-sm.disconnectbtn Disconnect your sipgate Account Webhooks from 
+            span.runkiturl this script
+      .div(id="io-editor")
   script(src="https://embed.runkit.com")
   script!= `accessToken = "${accessToken}";`
   script
