@@ -9,6 +9,12 @@ app.post("/", (req, res) => {
     res.type('application/xml')
     res.end(`<!--?xml version="1.0" encoding="UTF-8"?-->
 <Response>
+    <Play>
+        <Url>https://storage.googleapis.com/clinq-static-files/english-phone-number.wav</Url>
+    </Play>
     <Say>${data.from}</Say>
+    <Play>
+        <Url>https://storage.googleapis.com/clinq-static-files/thank-you.wav</Url>
+    </Play>
 </Response>`);
 })
