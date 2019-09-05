@@ -54,7 +54,9 @@ block content
         .hooksconnect.alert.alert-danger Sorry, but you account already has webhooks set up. We will not change this setting to not mess up your live account. You can delete the current endpint settings 
           a(href="https://console.sipgate.de") from the sipgate console
       .hooksconnected.alert.alert-success.hidden 
-        p Connection has been established. You can now call one of your accounts phone numbers.
+        p Connection has been established. You can now call 
+          strong=activeNumber
+          | or any other of your accounts phone numbers.
         p
           a.btn.btn-info.btn-sm.disconnectbtn Disconnect your sipgate Account Webhooks from 
             span.runkiturl this script

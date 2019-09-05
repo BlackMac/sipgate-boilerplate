@@ -9,6 +9,6 @@ app.post("/", (req, res) => {
     res.type('application/xml')
     res.end(`<!--?xml version="1.0" encoding="UTF-8"?-->
 <Response>
-    <Say>12345</Say>
+    <Say>${data.from}</Say>
 </Response>`);
 })
