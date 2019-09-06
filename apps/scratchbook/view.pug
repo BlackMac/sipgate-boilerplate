@@ -13,33 +13,45 @@ block content
           a.list-group-item.list-group-item-action.active(href="javascript:")
             i.fas.fa-money-bill &nbsp;
             | Account Balance
-            script.invisible.d-none(type="data")
+            i.fas.fa-history.changed.hidden
+            script.invisible.d-none(type="data").template
               include samples/get_balance.js
+            script.invisible.d-none(type="data").changedCode
           a.list-group-item.list-group-item-action(href="javascript:")
             i.fas.fa-user &nbsp;
             | User Information
-            script.invisible.d-none(type="data")
+            i.fas.fa-history.changed.hidden
+            script.invisible.d-none(type="data").template
               include samples/get_user_information.js
+            script.invisible.d-none(type="data").changedCode
           a.list-group-item.list-group-item-action(href="javascript:")
             i.fas.fa-sms &nbsp;
             | Send SMS
-            script.invisible.d-none(type="data")
+            i.fas.fa-history.changed.hidden
+            script.invisible.d-none(type="data").template
               include samples/send_sms.js
+            script.invisible.d-none(type="data").changedCode
           a.list-group-item.list-group-item-action(href="javascript:")
             i.fas.fa-map-marked-alt &nbsp;
             | Calls on a Map
-            script.invisible.d-none(type="data")
+            i.fas.fa-history.changed.hidden
+            script.invisible.d-none(type="data").template
               include samples/calls_on_map.js
+            script.invisible.d-none(type="data").changedCode
           a.list-group-item.list-group-item-action(href="javascript:")
             i.fas.fa-route &nbsp;
             | Direct API Access
-            script.invisible.d-none(type="data")
+            i.fas.fa-history.changed.hidden
+            script.invisible.d-none(type="data").template
               include samples/direct_api.js
+            script.invisible.d-none(type="data").changedCode
           a.list-group-item.list-group-item-action.endpoint(href="javascript:")
             i.fas.fa-plug &nbsp;
             | Webhook live Calls
-            script.invisible.d-none(type="data")
+            i.fas.fa-history.changed.hidden
+            script.invisible.d-none(type="data").template
               include samples/webhooks.js
+            script.invisible.d-none(type="data").changedCode
     .col-md-8.offset-md-1
       if (canchange==='y')
         

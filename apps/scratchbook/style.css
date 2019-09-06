@@ -19,3 +19,8 @@ h5 {
 .hidden {
     display:none;
 }
+
+.changed {
+    float:right;
+    padding-top:4px;
+}

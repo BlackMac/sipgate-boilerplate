@@ -66,4 +66,15 @@ window.addEventListener('load', () => {
         process.env.TOKEN = "${data}";`, () => {});
       });
   }, 20000);
+  setInterval(() => {
+    const template = $('a.list-group-item.active .template').text();
+    notebook.getSource((src) => {
+      if (src !== template) {
+        $('a.list-group-item.active .template').text(src);
+        $('a.list-group-item.active .changed').show();
+      } else {
+        $('a.list-group-item.active .changed').hide();
+      }
+    });
+  }, 2000);
 });
