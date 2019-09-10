@@ -10,34 +10,38 @@ block content
   .row
     .h3=title
   .row
-    .col-md-4.phone
+    .col-md-4.phone.offset-md-4
       .card.idle.state
         .card-body
           h5.card-title Anruf Starten
           p.card-text
             label auf die Rufnummer
             input.number.col-md-12.form-control(type="text" placeholder="+491234567")
-            button.btn.btn-primary.form-control.dial Anrufen
+            .mt-3
+              button.btn.btn-primary.form-control.dial Anrufen
       .card.incoming.state
         .card-body
           h5.card-title Eingehender Anruf
           p.card-text
             label von der Rufnummer
             h5.remotenumber +49123456
-            button.btn.btn-success.form-control.answer Antworten
-            button.btn.btn-danger.form-control.hangup Ablehnen
+            .mt-3
+              button.btn.btn-success.form-control.answer Antworten
+              button.btn.btn-danger.form-control.hangup Ablehnen
       .card.active.state
         .card-body
           h5.card-title Aktiver Anruf
           p.card-text
             label mit der Rufnummer
             h5.remotenumber +49123456
-            button.btn.btn-danger.form-control.hangup Auflegen
+            .mt-3
+              button.btn.btn-danger.form-control.hangup Auflegen
       .card.initiating.state
         .card-body
           h5.card-title Anruf Aufbauen
           p.card-text
             label auf die Rufnummer
             h5.remotenumber +49123456
-            button.btn.btn-danger.form-control.hangup Auflegen
+            .mt-3
+              button.btn.btn-danger.form-control.hangup Auflegen
     audio(id="localAudio")

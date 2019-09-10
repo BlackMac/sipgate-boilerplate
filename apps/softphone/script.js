@@ -30,50 +30,68 @@ window.addEventListener('load', () => {
     $('.remotenumber').text(data.request.from._displayName);
     $('.card.state').hide();
     $('.card.state.incoming').show();
+    $('.card.state.incoming .btn').removeAttr('disabled');
     //simple.answer();
   });
 
   simple.on('hangup', (data) => {
     $('.card.state').hide();
     $('.card.state.idle').show();
+    $('.card.state.idle .btn').removeAttr('disabled');
     //simple.answer();
   });
 
   simple.on('reject', (data) => {
     $('.card.state').hide();
     $('.card.state.idle').show();
+    $('.card.state.idle .btn').removeAttr('disabled');
     //simple.answer();
   });
 
   simple.on('ended', (data) => {
     $('.card.state').hide();
     $('.card.state.idle').show();
+    $('.card.state.idle .btn').removeAttr('disabled');
     //simple.answer();
   });
 
   simple.on('connected', (data) => {
-    $('.remotenumber').text(data.request.from._displayName);
+    console.log("+++###", data.request);
+    $('.remotenumber').text(data.request.from._displayName || data.request.to.friendlyName.replace('@sipgate.de', ''));
     $('.card.state').hide();
     $('.card.state.active').show();
+    $('.card.state.active .btn').removeAttr('disabled');
     //simple.answer();
   });
 
   simple.on('connecting', (data) => {
-    $('.remotenumber').text(data.request.from._displayName);
+    console.log("+++###", data.request);
+    $('.remotenumber').text(data.request.from._displayName || data.request.to.friendlyName.replace('@sipgate.de', ''));
     $('.card.state').hide();
     $('.card.state.initiating').show();
+    $('.card.state.initiating .btn').removeAttr('disabled');
     //simple.answer();
   });
 
   $('.hangup').click(() => {
+    $('.hangup').attr('disabled', true);
     simple.hangup();
   });
 
   $('.answer').click(() => {
+    $('.answer').attr('disabled', true);
     simple.answer();
   });
 
   $('.dial').click(() => {
+    $('.dial').attr('disabled', true);
     simple.call($('.number').val());
   })
+
+  $('.number').on('keyup', (k) => {
+    if (k.key === 'Enter') {
+      $('.dial').attr('disabled', true);
+      simple.call($('.number').val());
+    }
+  });
 });
