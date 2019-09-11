@@ -7,41 +7,49 @@ block content
     include script.js
   style
     include style.css
-  .row
-    .h3=title
+
   .row
     .col-md-4.phone.offset-md-4
-      .card.idle.state
+      .card.initializing.state
         .card-body
-          h5.card-title Anruf Starten
-          p.card-text
-            label auf die Rufnummer
-            input.number.col-md-12.form-control(type="text" placeholder="+491234567")
-            .mt-3
-              button.btn.btn-primary.form-control.dial Anrufen
-      .card.incoming.state
+          div.pulsating-circle
+          h5.card-title Initialisierung
+      .card.idle.state(style="display:none")
         .card-body
-          h5.card-title Eingehender Anruf
           p.card-text
-            label von der Rufnummer
-            h5.remotenumber +49123456
-            .mt-3
-              button.btn.btn-success.form-control.answer Antworten
-              button.btn.btn-danger.form-control.hangup Ablehnen
-      .card.active.state
+            input.number.col-md-12.form-control(type="text" placeholder="Nummer: +491234567")
+        .card-footer
+          button.btn.btn-primary.form-control.dial Anrufen
+      .card.incoming.state(style="display:none")
         .card-body
-          h5.card-title Aktiver Anruf
+          div.pulsating-circle
           p.card-text
-            label mit der Rufnummer
-            h5.remotenumber +49123456
-            .mt-3
-              button.btn.btn-danger.form-control.hangup Auflegen
-      .card.initiating.state
+            span.remotenumber +49123456
+            | ruft an...
+        .card-footer
+          button.btn.btn-success.form-control.answer Antworten
+          button.btn.btn-danger.form-control.reject Ablehnen
+      .card.active.state(style="display:none")
         .card-body
-          h5.card-title Anruf Aufbauen
           p.card-text
-            label auf die Rufnummer
-            h5.remotenumber +49123456
-            .mt-3
-              button.btn.btn-danger.form-control.hangup Auflegen
+            span.remotenumber +49123456
+            | im Gespräch
+        .card-footer
+          button.btn.btn-danger.form-control.hangup Auflegen
+      .card.initiating.state(style="display:none")
+        .card-body
+          div.pulsating-circle
+          p.card-text
+            span.remotenumber +49123456
+            | wird aufgebaut...
+        .card-footer
+          button.btn.btn-danger.form-control.hangup Auflegen
+      .card.preparing.state(style="display:none")
+        div.pulsating-circle
+        .card-body
+          p.card-text
+            span.remotenumber +49123456
+            | wird angerufen...
+        .card-footer
+          button.btn.btn-danger.form-control.hangup Auflegen
     audio(id="localAudio")

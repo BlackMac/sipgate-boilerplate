@@ -1,7 +1,6 @@
 
 window.addEventListener('load', () => {
-  $('.card.state').hide();
-  $('.card.state.idle').show();
+  //$('.card.state').hide();
   const options = {
     media: {
       constraints: {
@@ -73,9 +72,20 @@ window.addEventListener('load', () => {
     //simple.answer();
   });
 
+  simple.on('registered', () => {
+    $('.card.state').hide();
+    $('.card.state.idle').show();
+    $('.card.state.idle .btn').removeAttr('disabled');
+  })
+
   $('.hangup').click(() => {
     $('.hangup').attr('disabled', true);
     simple.hangup();
+  });
+
+  $('.reject').click(() => {
+    $('.reject').attr('disabled', true);
+    simple.reject();
   });
 
   $('.answer').click(() => {
@@ -84,8 +94,14 @@ window.addEventListener('load', () => {
   });
 
   $('.dial').click(() => {
-    $('.dial').attr('disabled', true);
-    simple.call($('.number').val());
+    if ($('.number').val()) {
+      $('.dial').attr('disabled', true);
+      simple.call($('.number').val());
+      $('.remotenumber').text($('.number').val());
+      $('.card.state').hide();
+      $('.card.state.preparing').show();
+      $('.card.state.preparing .btn').removeAttr('disabled');
+    }
   })
 
   $('.number').on('keyup', (k) => {

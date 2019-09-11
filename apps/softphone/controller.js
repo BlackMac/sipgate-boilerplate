@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
   sipgate.getCredentials(tokenInfo).then((credentials) => {
     credentials.items.forEach((extension) => {
       if (extension.type === "REGISTER") {
-        console.log(extension.credentials);
+        console.log(extension);
         return res.render(`apps/${config.path}/view`, {
           title: config.name,
           extension: JSON.stringify({
